@@ -35,7 +35,7 @@ else:
                 break
         steps += 1
 
-        if abs(current_savings - SAVINGS_REQD) < 100:
+        if abs(current_savings - SAVINGS_REQD) < 100 or steps > 55:
             break
         elif current_savings > SAVINGS_REQD and PERCENT_TO_SAVE > 0:
             guess_high = PERCENT_TO_SAVE
