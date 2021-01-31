@@ -39,7 +39,6 @@ else:
             break
         elif current_savings > SAVINGS_REQD and PERCENT_TO_SAVE > 0:
             guess_high = PERCENT_TO_SAVE
-
         elif current_savings < SAVINGS_REQD:
             guess_low = PERCENT_TO_SAVE 
 
