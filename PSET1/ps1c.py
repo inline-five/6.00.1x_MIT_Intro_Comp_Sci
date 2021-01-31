@@ -1,23 +1,46 @@
-#ask starting annual salary
 annual_salary = float(input("What is your annual salary? "))
 
-percent_to_save = .04
-months_to_save = 36
-semi_annual_raise = 1.07
-savings_required = 250000
+PERCENT_TO_SAVE = 10000
+MONTHS_TO_SAVE = 36
+SEMI_ANNUAL_RAISE = 1.07
+SAVINGS_REQD = 250000
+initial_salary = annual_salary
 current_savings = 0.0
 steps = 0 
-months = 0
 guess_high = 10000
 guess_low = 0
 
-while current_savings < savings_required:
-    for x in range(36):
-        if months % 6 == 0:
-            annual_salary *= (semi_annual_raise)
-        current_savings += (annual_salary*percent_to_save)/12 + current_savings*(0.04/12)
-    steps += 1
-    
-    
+for months in range(1, MONTHS_TO_SAVE + 1):
+    current_savings += round((annual_salary*(PERCENT_TO_SAVE / 10000))/12 + current_savings*(0.04/12), 2)
+    if months % 6 == 0:
+        annual_salary *= (SEMI_ANNUAL_RAISE)
 
-print("Number of steps: ", months)
+if current_savings < SAVINGS_REQD:
+    print("It is not possible to save that amount.")
+    steps += 1
+
+else:
+    steps += 1
+    while abs(current_savings - SAVINGS_REQD) > 100:
+        if PERCENT_TO_SAVE == 0:
+            break
+        current_savings = 0.0
+        annual_salary = initial_salary
+        PERCENT_TO_SAVE = int((guess_high + guess_low) / 2)
+
+        for months in range(1, MONTHS_TO_SAVE + 1):
+            current_savings += round((annual_salary*(PERCENT_TO_SAVE / 10000))/12 + current_savings*(0.04/12), 2)
+            if months % 6 == 0:
+                annual_salary *= (SEMI_ANNUAL_RAISE)
+            elif current_savings > SAVINGS_REQD:
+                break
+        steps += 1
+
+        if abs(current_savings - SAVINGS_REQD) < 100:
+            break
+        elif current_savings > SAVINGS_REQD and PERCENT_TO_SAVE > 0:
+            guess_high = PERCENT_TO_SAVE
+        elif current_savings < SAVINGS_REQD:
+            guess_low = PERCENT_TO_SAVE 
+
+    print("Best savings rate: {}\nNumber of steps: {}".format(round(PERCENT_TO_SAVE/10000,4), steps))
