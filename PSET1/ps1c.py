@@ -17,7 +17,6 @@ for months in range(1, MONTHS_TO_SAVE + 1):
 
 if current_savings < SAVINGS_REQD:
     print("It is not possible to save that amount.")
-    steps += 1
 
 else:
     steps += 1
@@ -40,6 +39,7 @@ else:
             break
         elif current_savings > SAVINGS_REQD and PERCENT_TO_SAVE > 0:
             guess_high = PERCENT_TO_SAVE
+
         elif current_savings < SAVINGS_REQD:
             guess_low = PERCENT_TO_SAVE 
 
