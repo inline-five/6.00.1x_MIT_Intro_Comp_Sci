@@ -62,13 +62,11 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     secret_word = list(secret_word)
-    correct_letters = 0
     
     for letter in secret_word: 
-        if letter in letters_guessed: 
-            correct_letters += 1
-
-    return True if len(secret_word) == correct_letters else False
+        if letter not in letters_guessed: 
+            return False
+    return True
 
 
 ''' SECOND '''
@@ -91,11 +89,8 @@ def get_guessed_word(secret_word, letters_guessed):
         else:
             printed_word.append('_ ')
 
-    if guess_correct: 
-        print("".join(printed_word))
-    else:
-        print("".join(printed_word))
-
+    print("".join(printed_word))
+    
     return guess_correct
 
 
@@ -159,7 +154,7 @@ def hangman(secret_word):
         if not letter_try.isalpha():
             WARNINGS -= 1
             if WARNINGS < 0 :
-                print("Oops! You've already guessed that letter. You have no warnings left so you lose one guess: ", end="")
+                print("Oops! That is not a valid letter. You have no warnings left so you lose one guess: ", end="")
                 GUESSES -= 1
                 get_guessed_word(secret_word, letters_guessed)
             else:    
@@ -177,13 +172,13 @@ def hangman(secret_word):
                 get_guessed_word(secret_word, letters_guessed)
 
         elif letter_try in secret_word_list:
-            letters_guessed.append(letter_try)
+            letters_guessed.append(letter_try.lower())
             print("Good guess: ", end="")
             get_guessed_word(secret_word, letters_guessed)
 
         elif letter_try not in secret_word_list:
             GUESSES -= 1
-            letters_guessed.append(letter_try)
+            letters_guessed.append(letter_try.lower())
             print("Oops! That letter is not in my word: ", end="")
             get_guessed_word(secret_word, letters_guessed)
 
