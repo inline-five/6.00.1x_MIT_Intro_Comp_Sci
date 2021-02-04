@@ -1,5 +1,5 @@
 # Problem Set 2, hangman.py
-# Name:
+# Name: Matthew Wise
 # Collaborators: None
 # Time spent: 
 
@@ -210,8 +210,6 @@ def match_with_gaps(my_word, other_word):
         False otherwise: 
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    ## my_word = secret word
-    ## other_word = possible matched word from wordlist
     total_letters = 0
     correct = 0
 
@@ -282,7 +280,6 @@ def hangman_with_hints(secret_word):
     Follows the other limitations detailed in the problem write-up.
     '''
 # FILL IN YOUR CODE HERE AND DELETE "pass"
-    secret_word = "else"
     GUESSES, WARNINGS = 6, 3
     letters_guessed = []
     secret_word_list = list(secret_word)
@@ -297,7 +294,7 @@ def hangman_with_hints(secret_word):
         letter_try = input(str("Please guess a letter: "))
 
 
-    ##### PRINT EACH WORD THAT MATCHES FORMAT OF SECRET WORD #####
+        ## PRINT EACH WORD THAT MATCHES FORMAT OF SECRET WORD ##
         if letter_try == '*':
             show_possible_matches(get_guessed_word(secret_word, letters_guessed).replace(" ", ""))
 
@@ -329,7 +326,6 @@ def hangman_with_hints(secret_word):
             GUESSES -= 1
             letters_guessed.append(letter_try.lower())
             print("Oops! That letter is not in my word: {}".format(get_guessed_word(secret_word, letters_guessed)))
-            #print(get_guessed_word(secret_word, letters_guessed))
 
     print("-------------")
     
@@ -339,7 +335,7 @@ def hangman_with_hints(secret_word):
     else:
         print("Sorry, you ran out of guesses. The word was {}.\n".format(secret_word))
 
-    exit()
+
 # When you've completed your hangman function, scroll down to the bottom
 # of the file and uncomment the first two lines to test
 #(hint: you might want to pick your own
