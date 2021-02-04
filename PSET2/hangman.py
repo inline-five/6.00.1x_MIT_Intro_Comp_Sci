@@ -1,5 +1,5 @@
 # Problem Set 2, hangman.py
-# Name: Matthew Wise
+# Name:
 # Collaborators: None
 # Time spent: 
 
