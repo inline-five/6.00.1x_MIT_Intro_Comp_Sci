@@ -1,3 +1,5 @@
+# bisection search method
+
 annual_salary = float(input("What is your annual salary? "))
 
 PERCENT_TO_SAVE = 10000
@@ -25,7 +27,7 @@ else:
             break
         current_savings = 0.0
         annual_salary = initial_salary
-        PERCENT_TO_SAVE = int((guess_high + guess_low) / 2)
+        PERCENT_TO_SAVE = int((guess_high + guess_low) / 2) #bisection split here
 
         for months in range(1, MONTHS_TO_SAVE + 1):
             current_savings += round((annual_salary*(PERCENT_TO_SAVE / 10000))/12 + current_savings*(0.04/12), 2)
@@ -34,7 +36,8 @@ else:
             elif current_savings > SAVINGS_REQD:
                 break
         steps += 1
-
+        
+        # bisection search assignment
         if abs(current_savings - SAVINGS_REQD) < 100 or steps > 55:
             break
         elif current_savings > SAVINGS_REQD and PERCENT_TO_SAVE > 0:
