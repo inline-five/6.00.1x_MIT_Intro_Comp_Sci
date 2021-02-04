@@ -188,7 +188,7 @@ def hangman(secret_word):
     else:
         print("Sorry, you ran out of guesses. The word was {}.\n".format(secret_word))
 
-    exit()
+
 # When you've completed your hangman function, scroll down to the bottom
 # of the file and uncomment the first two lines to test
 #(hint: you might want to pick your own
