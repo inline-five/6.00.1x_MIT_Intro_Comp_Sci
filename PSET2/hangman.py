@@ -1,5 +1,5 @@
 # Problem Set 2, hangman.py
-# Name: Matthew Wise
+# Name: 02/04/2021
 # Collaborators: None
 # Time spent: 
 
@@ -31,7 +31,6 @@ def load_words():
     wordlist = line.split()
     print("  ", len(wordlist), "words loaded.")
     return wordlist
-
 
 
 def choose_word(wordlist):
@@ -194,8 +193,6 @@ def hangman(secret_word):
 # of the file and uncomment the first two lines to test
 #(hint: you might want to pick your own
 # secret_word while you're doing your own testing)
-
-
 # -----------------------------------
 
 
