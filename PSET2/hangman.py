@@ -159,7 +159,7 @@ def hangman(secret_word):
                 print("Oops! That is not a valid letter. You have {} warnings left: ".format(WARNINGS),end="")
                 print(get_guessed_word(secret_word, letters_guessed))
 
-        elif letter_try in letters_guessed:
+        elif letter_try.lower() in letters_guessed:
             WARNINGS -= 1
             if WARNINGS < 0:
                 print("Oops! You've already guessed that letter. You have no warnings left so you lose one guess: ", end="")
@@ -169,12 +169,12 @@ def hangman(secret_word):
                 print("Oops! You've already guessed that letter. You have {} warnings left: ".format(WARNINGS), end="")
                 print(get_guessed_word(secret_word, letters_guessed))
 
-        elif letter_try in secret_word_list:
+        elif letter_try.lower() in secret_word_list:
             letters_guessed.append(letter_try.lower())
             print("Good guess: ", end="")
             print(get_guessed_word(secret_word, letters_guessed))
 
-        elif letter_try not in secret_word_list:
+        elif letter_try.lower() not in secret_word_list:
             GUESSES -= 1
             letters_guessed.append(letter_try.lower())
             print("Oops! That letter is not in my word: ", end="")
@@ -305,7 +305,7 @@ def hangman_with_hints(secret_word):
                 print("Oops! That is not a valid letter. You have {} warnings left: ".format(WARNINGS),end="")
                 print(get_guessed_word(secret_word, letters_guessed))
 
-        elif letter_try in letters_guessed:
+        elif letter_try.lower() in letters_guessed:
             WARNINGS -= 1
             if WARNINGS < 0:
                 print("Oops! You've already guessed that letter. You have no warnings left so you lose one guess: ", end="")
@@ -315,11 +315,11 @@ def hangman_with_hints(secret_word):
                 print("Oops! You've already guessed that letter. You have {} warnings left: ".format(WARNINGS), end="")
                 print(get_guessed_word(secret_word, letters_guessed))
 
-        elif letter_try in secret_word_list:
+        elif letter_try.lower() in secret_word_list:
             letters_guessed.append(letter_try.lower())
             print("Good guess: {}".format(get_guessed_word(secret_word, letters_guessed)))
 
-        elif letter_try not in secret_word_list:
+        elif letter_try.lower() not in secret_word_list:
             GUESSES -= 1
             letters_guessed.append(letter_try.lower())
             print("Oops! That letter is not in my word: {}".format(get_guessed_word(secret_word, letters_guessed)))
